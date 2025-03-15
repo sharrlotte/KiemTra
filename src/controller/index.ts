@@ -1,6 +1,7 @@
 import { Router } from "express";
 import productRouter from "./product.controller";
 import productService from "../service/product.service";
+import adminController from "./admin.controller";
 
 const router = Router();
 
@@ -11,5 +12,6 @@ router.get("/", async (req, res) => {
 });
 
 router.use(productRouter);
+router.use(adminController);
 
 export default router;
