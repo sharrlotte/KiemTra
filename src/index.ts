@@ -13,8 +13,6 @@ app.set("views", __dirname + "/apps/views");
 app.set("view engine", "ejs");
 app.use("/static", express.static(__dirname + "/public"));
 
-const controller = require(__dirname + "/apps/controllers");
-app.use(controller);
 dotenv.config();
 
 app.get("/", (req: Request, res: Response) => {
