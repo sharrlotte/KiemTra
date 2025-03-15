@@ -32,7 +32,7 @@ async function connect() {
 	}
 }
 
-const database = mongoClient.db("Cluster0");
+const database = mongoClient.db("kiem-tra");
 
 export { connect };
 
