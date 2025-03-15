@@ -37,7 +37,7 @@ const database = mongoClient.db("kiem-tra");
 export { connect };
 
 const db = {
-	product: database.collection<Product>("product"),
+	product: database.collection<Product>("products"),
 };
 
 export default db;
