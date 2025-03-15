@@ -71,16 +71,20 @@
 			<div class="vegetables_section layout_padding">
 				<div class="container">
 					<div class="vegetables_section_2 layout_padding">
-						<div class="row">
+						<div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4">
 							<% products.forEach(function(product) { %>
 							<div class="col">
-								<div class="box_section">
-									<div class="image_4"><img src="<%= product.imageUrl %>" /></div>
-									<h2 class="dolor_text">$<span style="color: #ebc30a"><%= product.price %></span></h2>
-									<h2 class="dolor_text"><%= product.name %></h2>
-									<h2 class="dolor_text_1"><%= product.weight %> kg</h2>
-									<p class="tempor_text"><%= product.description %></p>
-									<div class="buy_bt_1"><a href="#">Buy Now</a></div>
+								<div class="box_section h-100">
+									<div class="image_4 product-image">
+										<img src="<%= product.imageUrl %>" alt="<%= product.name %>" />
+									</div>
+									<div class="product-info">
+										<h2 class="dolor_text">$<span style="color: #ebc30a"><%= product.price %></span></h2>
+										<h2 class="dolor_text product-name"><%= product.name %></h2>
+										<h2 class="dolor_text_1"><%= product.weight %> kg</h2>
+										<p class="tempor_text product-desc"><%= product.description %></p>
+										<div class="buy_bt_1"><a href="#">Buy Now</a></div>
+									</div>
 								</div>
 							</div>
 							<% }); %>
@@ -150,3 +154,87 @@
 		<script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 	</body>
 </html>
+
+<style>
+.row {
+  margin: 0 -15px;
+}
+
+.col {
+  padding: 15px;
+}
+
+.box_section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 15px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.box_section:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.product-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-name {
+  font-size: 18px;
+  margin: 10px 0;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.product-desc {
+  flex: 1;
+  font-size: 14px;
+  color: #666;
+  margin: 10px 0;
+  height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.buy_bt_1 {
+  margin-top: auto;
+}
+
+.dolor_text {
+  margin: 5px 0;
+}
+
+.dolor_text_1 {
+  color: #666;
+  font-size: 14px;
+  margin: 5px 0;
+}
+</style>
