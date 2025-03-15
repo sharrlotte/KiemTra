@@ -1,9 +1,14 @@
 import express, { Express, Request, Response } from "express";
-import dotenv from "dotenv";
 import router from "./controller";
+import dotenv from "dotenv";
+import db, { connect } from "./database/mongodb";
+
+dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
+
+connect();
 
 const bodyParser = require("body-parser");
 app.use(express.json());

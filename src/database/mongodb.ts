@@ -1,5 +1,11 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
 import { Product } from "../model/product.model";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+console.log("Mongo: " + process.env.MONGO_DB_URI);
+
 const uri = process.env.MONGO_DB_URI;
 
 if (!uri) {
