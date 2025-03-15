@@ -8,7 +8,6 @@ productRouter.get("/products", async (req, res) => {
   const pageSize = parseInt(req.query.size as string) || 10;
   
   const products = await productService.getProductList(pageIndex, pageSize);
-  console.log(products);
   res.render("product/index.ejs", { products });
 });
 
