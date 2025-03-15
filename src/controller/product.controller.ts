@@ -1,4 +1,7 @@
 import { Router } from "express";
 
-const router = Router();
+const productRouter = Router();
 
+productRouter.get("products", (req, res) => res.render("product.ejs"));
+
+export default productRouter;

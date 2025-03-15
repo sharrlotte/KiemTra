@@ -1,12 +1,13 @@
-const { MongoClient, ServerApiVersion } = require("mongodb");
+import { MongoClient, ServerApiVersion } from "mongodb";
+import { Product } from "../model/product.model";
 const uri = process.env.MONGO_DB_URI;
 
 if (!uri) {
 	throw new Error("MongoDB uri not found in env");
 }
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
+// Create a MongomongoClient with a MongomongoClientOptions object to set the Stable API version
+const mongoClient = new MongoClient(uri, {
 	serverApi: {
 		version: ServerApiVersion.v1,
 		strict: true,
@@ -16,15 +17,21 @@ const client = new MongoClient(uri, {
 
 async function connect() {
 	try {
-		// Connect the client to the server	(optional starting in v4.7)
-		await client.connect();
+		// Connect the mongoClient to the server	(optional starting in v4.7)
+		await mongoClient.connect();
 		// Send a ping to confirm a successful connection
-		await client.db("admin").command({ ping: 1 });
+		await mongoClient.db("admin").command({ ping: 1 });
 		console.log("Pinged your deployment. You successfully connected to MongoDB!");
 	} finally {
 	}
 }
 
+const database = mongoClient.db("Cluster0");
+
 export { connect };
 
-export default client;
+const db = {
+	product: database.collection<Product>("product"),
+};
+
+export default db;

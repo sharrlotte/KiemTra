@@ -1,9 +1,10 @@
 import { Router } from "express";
+import productRouter from "./product.controller";
 
 const router = Router();
 
-router.get("/", function (req, res) {
-	res.render("home.ejs");
-});
+router.get("/", (req, res) => res.render("home.ejs"));
+
+router.use(productRouter);
 
 export default router;
